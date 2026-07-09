@@ -1,0 +1,184 @@
+{% extends "base.html" %}
+{% block title %}Career Assessment — CareerCompass AI{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+
+  <div class="page-header mb-5 text-center">
+    <div class="page-icon mb-3"><i class="bi bi-clipboard-data-fill"></i></div>
+    <h1 class="page-title">Career Assessment</h1>
+    <p class="page-subtitle">Tell us about yourself so CareerCompass AI can craft your personalized career plan.</p>
+  </div>
+
+  <div class="assessment-progress mb-4">
+    <div class="d-flex justify-content-between align-items-center mb-2">
+      <span class="step-label" id="stepLabel">Step 1 of 3 — Personal Info</span>
+      <span class="step-pct" id="stepPct">33%</span>
+    </div>
+    <div class="progress cc-progress">
+      <div class="progress-bar" id="progressBar" style="width: 33%" role="progressbar"></div>
+    </div>
+  </div>
+
+  <div class="cc-card max-w-form mx-auto">
+    <form id="assessmentForm" novalidate>
+
+      <!-- STEP 1 -->
+      <div class="form-step" id="step1">
+        <h5 class="step-section-title"><i class="bi bi-person-circle me-2 text-primary"></i>Personal Information</h5>
+        <div class="row g-3 mt-2">
+          <div class="col-md-6">
+            <label class="form-label">Full Name *</label>
+            <input type="text" class="form-control cc-input" id="name" name="name" placeholder="e.g. Alex Johnson" required />
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Years of Work Experience *</label>
+            <select class="form-select cc-input" id="experience" name="experience" required>
+              <option value="" disabled selected>Select experience</option>
+              <option value="0">Student / No experience</option>
+              <option value="1">Less than 1 year</option>
+              <option value="2">1–2 years</option>
+              <option value="4">3–5 years</option>
+              <option value="7">6–9 years</option>
+              <option value="10">10+ years</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Highest Education Level *</label>
+            <select class="form-select cc-input" id="education" name="education" required>
+              <option value="" disabled selected>Select education</option>
+              <option>High School / GED</option>
+              <option>Associate Degree</option>
+              <option>Bachelor's Degree</option>
+              <option>Master's Degree</option>
+              <option>PhD / Doctorate</option>
+              <option>Professional Certification</option>
+              <option>Bootcamp / Self-taught</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Field of Study / Major</label>
+            <input type="text" class="form-control cc-input" id="field_of_study" name="field_of_study" placeholder="e.g. Computer Science, Business" />
+          </div>
+        </div>
+        <div class="d-flex justify-content-end mt-4">
+          <button type="button" class="btn cc-btn-primary" onclick="nextStep(2)">Next <i class="bi bi-arrow-right ms-1"></i></button>
+        </div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="form-step d-none" id="step2">
+        <h5 class="step-section-title"><i class="bi bi-tools me-2 text-success"></i>Skills, Interests & Strengths</h5>
+        <div class="row g-3 mt-2">
+          <div class="col-12">
+            <label class="form-label">Current Skills * <span class="text-muted small">(comma-separated)</span></label>
+            <textarea class="form-control cc-input" id="skills" name="skills" rows="3" placeholder="e.g. Python, SQL, Excel, Project Management, Communication..." required></textarea>
+          </div>
+          <div class="col-12">
+            <label class="form-label">Interests & Passions *</label>
+            <textarea class="form-control cc-input" id="interests" name="interests" rows="2" placeholder="e.g. Machine learning, writing, entrepreneurship, helping people..." required></textarea>
+          </div>
+          <div class="col-12">
+            <label class="form-label">Your Key Strengths</label>
+            <textarea class="form-control cc-input" id="strengths" name="strengths" rows="2" placeholder="e.g. Problem-solving, leadership, attention to detail, creativity..."></textarea>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Preferred Work Style</label>
+            <select class="form-select cc-input" id="work_style" name="work_style">
+              <option value="" disabled selected>Select preference</option>
+              <option>Remote / Work from home</option>
+              <option>On-site / Office</option>
+              <option>Hybrid</option>
+              <option>Flexible / Freelance</option>
+              <option>Travel-intensive</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Expected Salary Range</label>
+            <select class="form-select cc-input" id="salary_expectation" name="salary_expectation">
+              <option value="" disabled selected>Select range</option>
+              <option>Below $40,000</option>
+              <option>$40,000 – $70,000</option>
+              <option>$70,000 – $100,000</option>
+              <option>$100,000 – $150,000</option>
+              <option>$150,000+</option>
+            </select>
+          </div>
+        </div>
+        <div class="d-flex justify-content-between mt-4">
+          <button type="button" class="btn cc-btn-outline" onclick="nextStep(1)"><i class="bi bi-arrow-left me-1"></i> Back</button>
+          <button type="button" class="btn cc-btn-primary" onclick="nextStep(3)">Next <i class="bi bi-arrow-right ms-1"></i></button>
+        </div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="form-step d-none" id="step3">
+        <h5 class="step-section-title"><i class="bi bi-bullseye me-2 text-danger"></i>Career Goals & Vision</h5>
+        <div class="row g-3 mt-2">
+          <div class="col-12">
+            <label class="form-label">Career Goal / Dream Role *</label>
+            <input type="text" class="form-control cc-input" id="career_goal" name="career_goal" placeholder="e.g. Become a Data Scientist at a top tech company" required />
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Industry Preference</label>
+            <select class="form-select cc-input" id="industry" name="industry">
+              <option value="" disabled selected>Select industry</option>
+              <option>Technology</option>
+              <option>Finance / FinTech</option>
+              <option>Healthcare</option>
+              <option>Education</option>
+              <option>Retail / E-commerce</option>
+              <option>Manufacturing</option>
+              <option>Government / Public Sector</option>
+              <option>Creative / Media</option>
+              <option>Consulting</option>
+              <option>Open to any</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Timeline to Transition</label>
+            <select class="form-select cc-input" id="timeline" name="timeline">
+              <option value="" disabled selected>Select timeline</option>
+              <option>ASAP (0–3 months)</option>
+              <option>Short-term (3–6 months)</option>
+              <option>Medium-term (6–12 months)</option>
+              <option>Long-term (1–2 years)</option>
+              <option>Exploring / No rush</option>
+            </select>
+          </div>
+          <div class="col-12">
+            <label class="form-label">Anything Else to Share? <span class="text-muted small">(optional)</span></label>
+            <textarea class="form-control cc-input" id="extra_info" name="extra_info" rows="3" placeholder="Any challenges, constraints, or specific things you want guidance on..."></textarea>
+          </div>
+        </div>
+        <div class="d-flex justify-content-between mt-4">
+          <button type="button" class="btn cc-btn-outline" onclick="nextStep(2)"><i class="bi bi-arrow-left me-1"></i> Back</button>
+          <button type="submit" class="btn cc-btn-primary btn-lg" id="submitBtn">
+            <i class="bi bi-magic me-2"></i>Analyze My Career
+          </button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+  <!-- Loading Modal -->
+  <div class="modal fade" id="loadingModal" data-bs-backdrop="static" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content cc-modal">
+        <div class="modal-body text-center py-5">
+          <div class="ai-loader mb-4"></div>
+          <h5 class="mb-2">Analyzing Your Profile…</h5>
+          <p class="text-muted mb-0" id="loadingMsg">IBM Granite AI is crafting your personalized career plan</p>
+          <div class="loading-steps mt-3" id="loadingSteps"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="{{ url_for('static', filename='js/assessment.js') }}"></script>
+{% endblock %}

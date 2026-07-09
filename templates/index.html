@@ -1,0 +1,199 @@
+{% extends "base.html" %}
+{% block title %}Dashboard — CareerCompass AI{% endblock %}
+
+{% block content %}
+<!-- ── HERO ───────────────────────────────────────────────────────────────── -->
+<section class="hero-section">
+  <div class="hero-bg-shapes">
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
+  </div>
+  <div class="container text-center position-relative">
+    <div class="hero-badge mb-3 animate-fadeInDown">
+      <i class="bi bi-stars me-2"></i>IBM Watsonx.ai · Granite Models
+    </div>
+    <h1 class="hero-title animate-fadeInUp">
+      Your AI-Powered<br>
+      <span class="gradient-text">Career Compass</span>
+    </h1>
+    <p class="hero-subtitle animate-fadeInUp delay-1">
+      Get personalized career guidance, skill gap analysis, learning roadmaps,
+      and resume tips — all powered by IBM Granite AI.
+    </p>
+    <div class="d-flex gap-3 justify-content-center flex-wrap animate-fadeInUp delay-2">
+      <a href="/assessment" class="btn cc-btn-primary btn-lg">
+        <i class="bi bi-clipboard-data me-2"></i>Start Assessment
+      </a>
+      <a href="/chat" class="btn cc-btn-outline btn-lg">
+        <i class="bi bi-chat-dots me-2"></i>Chat with AI
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── STATS STRIP ─────────────────────────────────────────────────────────── -->
+<section class="stats-strip py-4">
+  <div class="container">
+    <div class="row g-3 text-center">
+      <div class="col-6 col-md-3">
+        <div class="stat-card animate-countUp">
+          <div class="stat-number" data-target="50">0</div>
+          <div class="stat-label">Career Paths</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-card animate-countUp">
+          <div class="stat-number" data-target="200">0</div>
+          <div class="stat-label">Skills Mapped</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-card animate-countUp">
+          <div class="stat-number" data-target="100">0</div>
+          <div class="stat-label">Certifications</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-card animate-countUp">
+          <div class="stat-number" data-target="24">0</div>
+          <div class="stat-label">Industries Covered</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FEATURE CARDS ──────────────────────────────────────────────────────── -->
+<section class="py-5">
+  <div class="container">
+    <div class="section-header text-center mb-5">
+      <span class="section-label">What CareerCompass Offers</span>
+      <h2 class="section-title">Everything You Need to Navigate Your Career</h2>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4">
+        <div class="feature-card h-100 animate-slideUp delay-1">
+          <div class="feature-icon bg-primary-soft">
+            <i class="bi bi-clipboard-data-fill text-primary"></i>
+          </div>
+          <h5 class="feature-title">Career Assessment</h5>
+          <p class="feature-desc">Complete a structured assessment based on your education, skills, interests, and goals for AI-powered analysis.</p>
+          <a href="/assessment" class="feature-link">Start Now <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="feature-card h-100 animate-slideUp delay-2">
+          <div class="feature-icon bg-success-soft">
+            <i class="bi bi-stars text-success"></i>
+          </div>
+          <h5 class="feature-title">Career Recommendations</h5>
+          <p class="feature-desc">Receive ranked career path suggestions with match scores, salary insights, and growth outlook.</p>
+          <a href="/recommendations" class="feature-link">Explore <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="feature-card h-100 animate-slideUp delay-3">
+          <div class="feature-icon bg-warning-soft">
+            <i class="bi bi-graph-up-arrow text-warning"></i>
+          </div>
+          <h5 class="feature-title">Skill Gap Analysis</h5>
+          <p class="feature-desc">Identify missing skills for your target role and get prioritized recommendations on what to learn next.</p>
+          <a href="/recommendations" class="feature-link">Analyze <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="feature-card h-100 animate-slideUp delay-1">
+          <div class="feature-icon bg-info-soft">
+            <i class="bi bi-map-fill text-info"></i>
+          </div>
+          <h5 class="feature-title">Learning Roadmap</h5>
+          <p class="feature-desc">Get a step-by-step, phase-based learning roadmap with resources, timelines, and milestones.</p>
+          <a href="/recommendations" class="feature-link">View Roadmap <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="feature-card h-100 animate-slideUp delay-2">
+          <div class="feature-icon bg-danger-soft">
+            <i class="bi bi-file-earmark-person-fill text-danger"></i>
+          </div>
+          <h5 class="feature-title">Resume Improvement</h5>
+          <p class="feature-desc">Get ATS-optimized resume tips, power words, action verbs, and keyword suggestions for your target role.</p>
+          <a href="/recommendations" class="feature-link">Improve Resume <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="feature-card h-100 animate-slideUp delay-3">
+          <div class="feature-icon bg-purple-soft">
+            <i class="bi bi-robot text-purple"></i>
+          </div>
+          <h5 class="feature-title">AI Career Advisor</h5>
+          <p class="feature-desc">Chat in real-time with your AI career counselor for personalized guidance, advice, and answers.</p>
+          <a href="/chat" class="feature-link">Chat Now <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── HOW IT WORKS ────────────────────────────────────────────────────────── -->
+<section class="py-5 bg-surface">
+  <div class="container">
+    <div class="section-header text-center mb-5">
+      <span class="section-label">Process</span>
+      <h2 class="section-title">How It Works</h2>
+    </div>
+    <div class="row g-0 justify-content-center">
+      <div class="col-lg-10">
+        <div class="steps-timeline">
+          <div class="step-item">
+            <div class="step-num">1</div>
+            <div class="step-body">
+              <h6 class="step-title">Complete Your Profile</h6>
+              <p class="step-desc">Fill in the career assessment form with your education, skills, experience, and goals.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">2</div>
+            <div class="step-body">
+              <h6 class="step-title">AI Analysis</h6>
+              <p class="step-desc">IBM Granite AI analyzes your profile against thousands of career patterns and market data.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">3</div>
+            <div class="step-body">
+              <h6 class="step-title">Get Recommendations</h6>
+              <p class="step-desc">Receive personalized career paths, skill gap reports, and a custom learning roadmap.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">4</div>
+            <div class="step-body">
+              <h6 class="step-title">Take Action</h6>
+              <p class="step-desc">Follow your roadmap, improve your resume, and chat with AI whenever you need guidance.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA BANNER ─────────────────────────────────────────────────────────── -->
+<section class="cta-section py-5">
+  <div class="container text-center">
+    <h2 class="cta-title mb-3">Ready to Discover Your Ideal Career Path?</h2>
+    <p class="cta-sub mb-4">Join thousands who have found their direction with AI-powered career guidance.</p>
+    <a href="/assessment" class="btn cc-btn-primary btn-lg px-5">
+      <i class="bi bi-rocket-takeoff me-2"></i>Begin Your Journey
+    </a>
+  </div>
+</section>
+{% endblock %}
